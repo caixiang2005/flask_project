@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    
+    <!-- 引入FontAwesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- 引入自定义样式表 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='login/index.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <div class="characters-section">
+            <div class="characters-container">
+                <div class="character character-purple">
+                    <div class="face">
+                        <div class="eyes-row">
+                            <div class="eye eye-with-pupil">
+                                <div class="pupil"></div>
+                            </div>
+                            <div class="eye eye-with-pupil">
+                                <div class="pupil"></div>
+                            </div>
+                        </div>
+                        <div class="small-mouth"></div>
+                    </div>
+                </div>
+                <div class="character character-black">
+                    <div class="face">
+                        <div class="eyes-row" style="display: flex; gap: 20px;">
+                            <div class="eye eye-big-white">
+                                <div class="pupil"></div>
+                            </div>
+                            <div class="eye eye-big-white">
+                                <div class="pupil"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="character character-yellow">
+                    <div class="face">
+                        <div class="eye eye-small moving-eye"></div>
+                        <div class="line-mouth moving-mouth"></div>
+                    </div>
+                </div>
+                <div class="character character-orange">
+                    <div class="face">
+                        <div class="eyes-row">
+                            <div class="eye moving-eye"></div>
+                            <div class="eye moving-eye"></div>
+                        </div>
+                        <div class="big-smile moving-mouth"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="login-section">
+            <div class="login-container">
+                <div class="login-header">
+                    <i class="fas fa-user-circle"></i>
+                    <h1>欢迎登录</h1>
+                </div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="error-message">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <form action="/" method="POST">
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="请输入密码" required>
+                        </div>
+                    </div>
+                    <div class="remember-forgot">
+                        <label>
+                            <input type="checkbox" name="remember"> 记住我
+                        </label>
+                        <a href="/forgot-password">忘记密码?</a>
+                    </div>
+                    <button type="submit" class="login-btn">登录</button>
+                </form>
+                <div class="register-link">
+                    还没有账号? <a href="/register">立即注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入自定义JavaScript文件 -->
+    <script src="{{ url_for('static', filename='login/index.js') }}"></script>
+</body>
+</html>
