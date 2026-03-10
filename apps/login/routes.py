@@ -21,5 +21,5 @@ def login():
         else:
             flash('用户名或密码错误', 'error')
             return redirect(url_for('login.login'))
-
+    # get请求重定向到登录页面
     return render_template('login/index.html')

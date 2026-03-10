@@ -14,6 +14,7 @@ def create_app():
     from apps.login.routes import bp_login
     from apps.main.routes import bp_main
 
+    # 导入蓝图
     app.register_blueprint(bp_login, url_prefix='/')
     app.register_blueprint(bp_main, url_prefix='/main')
 
