@@ -23,3 +23,9 @@ def login():
             return redirect(url_for('login.login'))
     # get请求重定向到登录页面
     return render_template('login/index.html')
+
+@bp_login.route("/logout")
+def logout():
+    # 清空对话的记录
+    session.clear()
+    return redirect(url_for('login.login'))
