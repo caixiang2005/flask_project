@@ -4,10 +4,10 @@
 - 本项目基于内置的虚拟环境venv
 ```shell
 # 创建虚拟环境
-python -m venv flask-env
+python -m venv flask_project
 
 # 激活环境 (Windows)
-flask-env\Scripts\activate
+flask_project\Scripts\activate
 
 # 安装依赖
 pip install flask flask-sqlalchemy flask-login
@@ -21,3 +21,11 @@ pip install -r requirements.txt
 # 退出环境
 deactivate
 ```
+- 项目的环境
+  - pip install flask
+- 项目推荐使用的工具
+  -pip install mypy
+  -pip install black
+  pip install flake8
+提升整体的代码质量
+---
