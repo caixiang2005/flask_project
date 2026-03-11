@@ -22,10 +22,10 @@ pip install -r requirements.txt
 deactivate
 ```
 - 项目的环境
-  - pip install flask
+pip install flask
 - 项目推荐使用的工具
-  -pip install mypy
-  -pip install black
-  pip install flake8
+ mypy
+ black
+ flake8
 提升整体的代码质量
 ---
