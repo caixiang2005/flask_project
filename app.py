@@ -11,12 +11,23 @@ def create_app():
 
     db.init_app(app)
 
+
     from apps.login.routes import bp_login
     from apps.main.routes import bp_main
+    from apps.settings.routes import bp_settings
+    from apps.calendar.routes import bp_calendar
+    from apps.course.routes import bp_course
+    from apps.users.routes import bp_users
+    from apps.stats.routes import bp_stats
 
     # 导入蓝图
     app.register_blueprint(bp_login, url_prefix='/')
     app.register_blueprint(bp_main, url_prefix='/main')
+    app.register_blueprint(bp_settings, url_prefix='/settings')
+    app.register_blueprint(bp_calendar, url_prefix='/calendar')
+    app.register_blueprint(bp_course, url_prefix='/course')
+    app.register_blueprint(bp_users, url_prefix='/users')
+    app.register_blueprint(bp_stats, url_prefix='/stats')
 
     with app.app_context():
         db.create_all()

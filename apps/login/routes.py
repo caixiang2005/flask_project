@@ -24,6 +24,7 @@ def login():
     # get请求重定向到登录页面
     return render_template('login/index.html')
 
+# 退回到主登录界面
 @bp_login.route("/logout")
 def logout():
     # 清空对话的记录

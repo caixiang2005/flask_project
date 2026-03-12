@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='settings/settings.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="sidebar-nav">
+                <a href="{{ url_for('main.main') }}" class="nav-item">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="{{ url_for('calendar.calendar') }}" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                </a>
+                <a href="{{url_for('course.course')}}" class="nav-item">
+                    <i class="fas fa-book"></i>
+                </a>
+                <a href="{{url_for('users.users')}}" class="nav-item">
+                    <i class="fas fa-users"></i>
+                </a>
+                <a href="{{url_for('stats.stats')}}" class="nav-item">
+                    <i class="fas fa-chart-pie"></i>
+                </a>
+                <a href="{{ url_for('settings.settings') }}" class="nav-item active">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </div>
+            <div class="sidebar-bottom">
+                <a href="{{ url_for('login.logout') }}" class="nav-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="搜索...">
+                </div>
+                <div class="header-right">
+                    <button class="header-btn"><i class="fas fa-th"></i></button>
+                    <button class="header-btn"><i class="fas fa-bell"></i></button>
+                    <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="settings-full-content">
+                    <div class="settings-card">
+                        <div class="card-title">
+                            <h3><i class="fas fa-shield-alt"></i> 账户安全</h3>
+                            <span>保护您的账户安全</span>
+                        </div>
+                        <div class="settings-list">
+                            <div class="settings-item">
+                                <div class="item-info">
+                                    <i class="fas fa-key"></i>
+                                    <div><h4>修改密码</h4><p>定期更换密码保护账户安全</p></div>
+                                </div>
+                                <button class="btn-action">修改</button>
+                            </div>
+                            <div class="settings-item">
+                                <div class="item-info">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <div><h4>绑定手机</h4><p>用于接收验证码</p></div>
+                                </div>
+                                <button class="btn-action">绑定</button>
+                            </div>
+                            <div class="settings-item">
+                                <div class="item-info">
+                                    <i class="fas fa-envelope"></i>
+                                    <div><h4>绑定邮箱</h4><p>用于接收重要通知</p></div>
+                                </div>
+                                <button class="btn-action">绑定</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="card-title">
+                            <h3><i class="fas fa-palette"></i> 外观设置</h3>
+                            <span>自定义界面显示效果</span>
+                        </div>
+                        <div class="settings-list">
+                            <div class="settings-item">
+                                <div class="item-info">
+                                    <i class="fas fa-moon"></i>
+                                    <div><h4>深色模式</h4><p>切换深色/浅色主题</p></div>
+                                </div>
+                                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                            </div>
+                            <div class="settings-item">
+                                <div class="item-info">
+                                    <i class="fas fa-font"></i>
+                                    <div><h4>字体大小</h4><p>调整界面字体大小</p></div>
+                                </div>
+                                <select class="select-box"><option>小</option><option selected>中</option><option>大</option></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="card-title">
+                            <h3><i class="fas fa-language"></i> 语言设置</h3>
+                            <span>选择您偏好的显示语言</span>
+                        </div>
+                        <div class="settings-list">
+                            <div class="settings-item">
+                                <div class="item-info">
+                                    <i class="fas fa-globe"></i>
+                                    <div><h4>界面语言</h4><p>选择系统显示语言</p></div>
+                                </div>
+                                <select class="select-box"><option selected>简体中文</option><option>English</option></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

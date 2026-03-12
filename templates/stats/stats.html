@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>统计</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stats/stats.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="sidebar-nav">
+                <a href="{{ url_for('main.main') }}" class="nav-item">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="{{url_for('calendar.calendar')}}" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                </a>
+                <a href="{{url_for('course.course')}}" class="nav-item">
+                    <i class="fas fa-book"></i>
+                </a>
+                <a href="{{url_for('users.users')}}" class="nav-item">
+                    <i class="fas fa-users"></i>
+                </a>
+                <a href="{{url_for('stats.stats')}}" class="nav-item active">
+                    <i class="fas fa-chart-pie"></i>
+                </a>
+                <a href="{{ url_for('settings.settings') }}" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </div>
+            <div class="sidebar-bottom">
+                <a href="{{ url_for('login.logout') }}" class="nav-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="搜索...">
+                </div>
+                <div class="header-right">
+                    <button class="header-btn"><i class="fas fa-th"></i></button>
+                    <button class="header-btn"><i class="fas fa-bell"></i></button>
+                    <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="stats-header">
+                    <h2>数据统计</h2>
+                    <div class="time-filter">
+                        <span class="active">本周</span>
+                        <span>本月</span>
+                        <span>本年</span>
+                    </div>
+                </div>
+
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #7f3fff;">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value">12,856</span>
+                            <span class="stat-label">总浏览量</span>
+                        </div>
+                        <span class="stat-change up">+12.5%</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #00b894;">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value">856</span>
+                            <span class="stat-label">新增用户</span>
+                        </div>
+                        <span class="stat-change up">+8.2%</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #f8d351;">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value">1,234h</span>
+                            <span class="stat-label">学习时长</span>
+                        </div>
+                        <span class="stat-change up">+15.3%</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #f79358;">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value">4.8</span>
+                            <span class="stat-label">用户评分</span>
+                        </div>
+                        <span class="stat-change up">+0.2</span>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>学习趋势</h3>
+                        <div class="chart-placeholder">
+                            <div class="chart-bars">
+                                <div class="bar" style="height: 40%;"></div>
+                                <div class="bar" style="height: 60%;"></div>
+                                <div class="bar" style="height: 45%;"></div>
+                                <div class="bar" style="height: 80%;"></div>
+                                <div class="bar" style="height: 70%;"></div>
+                                <div class="bar" style="height: 90%;"></div>
+                                <div class="bar" style="height: 75%;"></div>
+                            </div>
+                            <div class="chart-labels">
+                                <span>周一</span>
+                                <span>周二</span>
+                                <span>周三</span>
+                                <span>周四</span>
+                                <span>周五</span>
+                                <span>周六</span>
+                                <span>周日</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>课程分布</h3>
+                        <div class="pie-chart">
+                            <div class="pie-segment" style="--percent: 40%; --color: #7f3fff;"></div>
+                            <div class="pie-segment" style="--percent: 30%; --color: #00b894;"></div>
+                            <div class="pie-segment" style="--percent: 20%; --color: #f8d351;"></div>
+                            <div class="pie-segment" style="--percent: 10%; --color: #f79358;"></div>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item"><span class="dot" style="background: #7f3fff;"></span>UI设计 40%</div>
+                            <div class="legend-item"><span class="dot" style="background: #00b894;"></span>Python 30%</div>
+                            <div class="legend-item"><span class="dot" style="background: #f8d351;"></span>插画 20%</div>
+                            <div class="legend-item"><span class="dot" style="background: #f79358;"></span>其他 10%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
