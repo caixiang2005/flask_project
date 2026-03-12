@@ -31,6 +31,12 @@ pip install flask
 ---
 ## 项目的文件结构
 - apps里面存放的是各个模块的单独路由
+  - main
+  - calendar
+  - course
+  - users
+  - stats
+  - settings
 - static里面存放的是各个模块对应的静态文件js,css
 - templates里面存放的是整个项目的渲染文件html
 - instance则为存储数据库表内的一些具体内容
