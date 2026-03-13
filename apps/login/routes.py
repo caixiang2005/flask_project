@@ -14,7 +14,8 @@ def login():
                 db.select(User).filter_by(username=username)
             ).scalar_one_or_none()
 
-        if user and user.password == password:
+        # 检查用户是否存在且密码匹配
+        if user and user.check_password(password):
             session['user_id'] = user.id
             session['username'] = user.username
             return redirect(url_for('main.main'))
