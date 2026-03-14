@@ -15,7 +15,7 @@ def create_app():
     # 检查登录状态
     @app.before_request
     def check_login():
-        not_judge = ['login.login','static']
+        not_judge = ['login.login','static','register.register']
 
         # 不需要判断的路由直接返回
         if request.endpoint in not_judge:
@@ -33,8 +33,10 @@ def create_app():
     from apps.course.routes import bp_course
     from apps.users.routes import bp_users
     from apps.stats.routes import bp_stats
+    from apps.register.routes import bp_register
 
     # 导入蓝图
+    app.register_blueprint(bp_register,url_prefix='/register')
     app.register_blueprint(bp_login, url_prefix='/')
     app.register_blueprint(bp_main, url_prefix='/main')
     app.register_blueprint(bp_settings, url_prefix='/settings')
@@ -42,6 +44,7 @@ def create_app():
     app.register_blueprint(bp_course, url_prefix='/course')
     app.register_blueprint(bp_users, url_prefix='/users')
     app.register_blueprint(bp_stats, url_prefix='/stats')
+
 
     with app.app_context():
         db.create_all()
